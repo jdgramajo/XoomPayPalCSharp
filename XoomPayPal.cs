@@ -16,12 +16,13 @@ namespace XoomPayPalApplication
 		}
 
 		static void Main(string[] args) {
-			if (args.Length < 1 || args.Length > 1 || Int32.Parse(args[0]) < 1) {
+            Int32 myNum;
+			if (args.Length < 1 || args.Length > 1 || !Int32.TryParse(args[0], out myNum)) {
 				Console.WriteLine("Usage: mono XoomPayPal.exe [Integer > 0]");
 				return;
 			}
 			XoomPayPal xpp = new XoomPayPal();
-			for(int i = 1 ; i <= Int32.Parse(args[0]) ; i++) {
+			for(int i = 1 ; i <= myNum ; i++) {
 				Console.WriteLine(xpp.evalNumber(i));
 			}
 		}
